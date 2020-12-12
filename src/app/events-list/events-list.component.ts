@@ -12,13 +12,17 @@ export class EventsListComponent implements OnInit {
   @Output() eventClick  = new EventEmitter();
   saluto : string = 'Ciao';
   events : any[];
+  num : number;
 
   constructor(private eventService : EventsService) { }
 
   handleClickMe()
   {
-    this.eventClick.emit(Math.random());
+    this.num = Math.random();
+    this.eventClick.emit(this.num);
   }
+
+ 
 
   newClick(){
     this.saluto = this.saluto === 'Hello' ? 'Ciao' : 'Hello';

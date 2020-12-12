@@ -1,13 +1,13 @@
-
+   <app-nav></app-nav>
 <h1> {{refVariable.saluto}} </h1>
 <button (click)=refVariable.newClick()>New Click</button>
 <hr/>
   <li *ngFor="let event of refVariable.events"> 
     <ul>
-      <div class="well hoverwell thumbnail">
+      <div class="well hoverwell thumbnail" (click)="tryAToastr(event?.name)">
         <div>{{event.id}} </div> 
         <div>{{event.name}}</div>  
-        <div [ngClass]="getStartTimeClass()" [ngSwitch]="event?.time">{{event.date}} {{event.time}}
+        <div [ngClass]="getStartTimeClass()"  [ngSwitch]="event?.time">{{event.date}} {{event.time}}
           <span *ngSwitchCase="'9:00 am'">(Normal start)</span>
           <span *ngSwitchCase="'8:00 am'">(Early start)</span>
           <span *ngSwitchCase="'10:00 am'">(Late start)</span>
@@ -18,7 +18,7 @@
   </ul>
   </li>
   <div>
-    
+ 
     <app-events-list #refVariable [greets]="greeting" (eventClick)="handleEventClicked($event)"></app-events-list>
     <div [hidden]="!fromChild">
       <span>{{fromChild}}</span>

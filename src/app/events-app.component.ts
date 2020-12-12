@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrServiceService } from './common/toastr-service.service';
 import { Event } from './event';
 
 @Component({
@@ -17,7 +18,7 @@ export class EventsAppComponent implements OnInit {
   greeting: string;
   fromChild: number;
 
-  constructor() {
+  constructor(private toastr : ToastrServiceService) {
     this.title = 'my-app';
     this.greeting = 'Hello World from parent to child!';
 
@@ -32,5 +33,9 @@ export class EventsAppComponent implements OnInit {
 
   }
 
+  tryAToastr(name : string){
+     this.toastr.success(name);
+
+  }
   
 }
