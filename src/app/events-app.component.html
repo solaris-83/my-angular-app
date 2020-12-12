@@ -7,7 +7,7 @@
       <div class="well hoverwell thumbnail">
         <div>{{event.id}} </div> 
         <div>{{event.name}}</div>  
-        <div [ngSwitch]="event?.time">{{event.date}} {{event.time}}
+        <div [ngClass]="getStartTimeClass()" [ngSwitch]="event?.time">{{event.date}} {{event.time}}
           <span *ngSwitchCase="'9:00 am'">(Normal start)</span>
           <span *ngSwitchCase="'8:00 am'">(Early start)</span>
           <span *ngSwitchCase="'10:00 am'">(Late start)</span>

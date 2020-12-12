@@ -332,6 +332,10 @@ export class EventsListComponent implements OnInit {
     this.saluto = this.saluto === 'Hello' ? 'Ciao' : 'Hello';
   }
 
+  getStartTimeClass(){
+    return ['green', 'bold'];
+  }
+
   ngOnInit(): void {
   }
 

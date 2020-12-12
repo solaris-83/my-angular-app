@@ -23,8 +23,14 @@ export class EventsAppComponent implements OnInit {
 
   }
 
+  getStartTimeClass(){
+    return ['green', 'bold'];
+  }
+
   handleEventClicked(data: number) {
     this.fromChild = data;
 
   }
+
+  
 }
